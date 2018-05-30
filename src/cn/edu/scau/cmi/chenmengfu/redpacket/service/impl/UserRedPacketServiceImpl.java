@@ -72,7 +72,7 @@ public class UserRedPacketServiceImpl implements UserRedPacketService {
 		RedPacket redPacket = redPacketDao.getRedPacket(redPacketId);
 		//当前小红包库存大于0
 		if(redPacket.getStock()>0){
-			int update =redPacketDao.decreaseRedPacket(redPacketId);
+			int update =redPacketDao.decreaseRedPacketForVersioni(redPacketId, redPacket.getVersion());
 			if(update==0) {
 				return FAILED;
 			}
