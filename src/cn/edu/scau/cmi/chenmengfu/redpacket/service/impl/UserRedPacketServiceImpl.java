@@ -68,8 +68,15 @@ public class UserRedPacketServiceImpl implements UserRedPacketService {
 	@Override
 	@Transactional(isolation = Isolation.READ_COMMITTED, propagation = Propagation.REQUIRED)
 	public int grabRedPacketForVersion(Long redPacketId, Long userId) {
+		//获取当前时间
 		long start = System.currentTimeMillis();
 		while (true) {
+			//获取循环当前时间
+			long end = System.currentTimeMillis();
+			//当前时间已经超过100ms，返回失败
+			if(end-start>100) {
+				return FAILED;
+			}
 			// 获取红包信息
 			RedPacket redPacket = redPacketDao.getRedPacket(redPacketId);
 			// 当前小红包库存大于0
