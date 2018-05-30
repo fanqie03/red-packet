@@ -68,8 +68,7 @@ public class UserRedPacketServiceImpl implements UserRedPacketService {
 	@Override
 	@Transactional(isolation = Isolation.READ_COMMITTED, propagation = Propagation.REQUIRED)
 	public int grabRedPacketForVersion(Long redPacketId, Long userId) {
-		long start = System.currentTimeMillis();
-		while (true) {
+		for(int i = 0; i < 3; i++) {
 			// 获取红包信息
 			RedPacket redPacket = redPacketDao.getRedPacket(redPacketId);
 			// 当前小红包库存大于0
@@ -91,6 +90,7 @@ public class UserRedPacketServiceImpl implements UserRedPacketService {
 				return FAILED;
 			}
 		}
+		return FAILED;
 	}
 
 }
