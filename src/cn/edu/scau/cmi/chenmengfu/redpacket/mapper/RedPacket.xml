@@ -15,5 +15,11 @@
 	set stock=stock-1
 	where id=#{id} 
 </update>
-
+<update id="decreaseRedPacketForVersion">
+	update T_RED_PACKET
+	set stock=stock-1,
+	version=version+1
+	where id=#{id}
+	and version=#{version}
+</update>
 </mapper>
