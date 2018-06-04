@@ -1,5 +1,6 @@
 package cn.edu.scau.cmi.chenmengfu.redpacket.dao;
 
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import cn.edu.scau.cmi.chenmengfu.redpacket.pojo.RedPacket;
@@ -12,5 +13,5 @@ public interface RedPacketDao {
 
 	public int decreaseRedPacket(Long id);
 
-	public int decreaseRedPacketForVersioni(Long id, int version);
+	public int decreaseRedPacketForVersioni(@Param("id")Long id, @Param("version")int version);
 }
