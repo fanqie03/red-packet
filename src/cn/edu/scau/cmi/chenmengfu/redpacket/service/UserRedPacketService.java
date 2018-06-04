@@ -22,4 +22,13 @@ public interface UserRedPacketService {
 	 * @return
 	 */
 	public int grabRedPacketForVersion(Long redPacketId,Long userId);
+	/**
+	 * 0 - 没有库存，失败
+	 * 1 - 成功，且不是最后一个红包
+	 * 2 - 成功，且是最后一个红包
+	 * @param redisPacketId
+	 * @param userId
+	 * @return
+	 */
+	public Long grapRedPacketByRedis(Long redPacketId,Long userId);
 }
