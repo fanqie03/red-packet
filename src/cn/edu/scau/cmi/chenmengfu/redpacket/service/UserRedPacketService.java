@@ -31,4 +31,18 @@ public interface UserRedPacketService {
 	 * @return
 	 */
 	public Long grapRedPacketByRedis(Long redPacketId,Long userId);
+	/**
+	 * 基于时间戳的重试
+	 * @param redPacketId
+	 * @param userId
+	 * @return
+	 */
+	public int grabRedPacketForTimestamp(Long redPacketId,Long userId);
+	/**
+	 * 基于重试次数的重试
+	 * @param redPacketId
+	 * @param userId
+	 * @return
+	 */
+	public int grabRedPacketForCount(Long redPacketId,Long userId);
 }

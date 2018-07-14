@@ -13,5 +13,6 @@ public interface RedPacketDao {
 
 	public int decreaseRedPacket(Long id);
 
-	public int decreaseRedPacketForVersioni(@Param("id")Long id, @Param("version")int version);
+
+	public int decreaseRedPacketForVersion(@Param("id")Long id, @Param("version")int version);
 }
