@@ -27,6 +27,7 @@ public class UserRedPacketController {
 		retMap.put("message", flag?"抢红包成功":"抢红包失败");
 		return retMap;
 	}
+	//悲观锁请求
 	@RequestMapping(value="/grapRedPacketForUpdate")
 	@ResponseBody
 	public Map<String, Object> grapRedPacketForUpdate(Long redPacketId,Long userId){
@@ -38,6 +39,7 @@ public class UserRedPacketController {
 		retMap.put("message", flag?"抢红包成功":"抢红包失败");
 		return retMap;
 	}
+	//乐观锁请求
 	@RequestMapping(value="/grapRedPacketForVersion")
 	@ResponseBody
 	public Map<String, Object> grapRedPacketForVersion(Long redPacketId,Long userId){
