@@ -61,4 +61,24 @@ public class UserRedPacketController {
 		resultMap.put("message", flag?"抢红包成功":"强红包失败");
 		return resultMap;
 	}
+	@RequestMapping(value="/grapRedPacketForCount")
+	@ResponseBody
+	public Map<String, Object>grapRedPacketForCount(Long redPacketId,Long userId){
+		Map<String, Object>resultMap = new HashMap<>();
+		int result=userRedPacketService.grapRedPacketForCount(redPacketId, userId);
+		boolean flag = result>0;
+		resultMap.put("result", flag);
+		resultMap.put("message", flag?"抢红包成功":"强红包失败");
+		return resultMap;
+	}
+	@RequestMapping(value="/grapRedPacketForTimestamp")
+	@ResponseBody
+	public Map<String, Object>grapRedPacketForTimestamp(Long redPacketId,Long userId){
+		Map<String, Object>resultMap = new HashMap<>();
+		int result=userRedPacketService.grapRedPacketForTimestamp(redPacketId, userId);
+		boolean flag = result>0;
+		resultMap.put("result", flag);
+		resultMap.put("message", flag?"抢红包成功":"强红包失败");
+		return resultMap;
+	}
 }

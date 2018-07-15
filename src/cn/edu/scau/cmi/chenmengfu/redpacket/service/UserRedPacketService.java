@@ -37,12 +37,12 @@ public interface UserRedPacketService {
 	 * @param userId
 	 * @return
 	 */
-	public int grabRedPacketForTimestamp(Long redPacketId,Long userId);
+	public int grapRedPacketForTimestamp(Long redPacketId,Long userId);
 	/**
 	 * 基于重试次数的重试
 	 * @param redPacketId
 	 * @param userId
 	 * @return
 	 */
-	public int grabRedPacketForCount(Long redPacketId,Long userId);
+	public int grapRedPacketForCount(Long redPacketId,Long userId);
 }

@@ -71,7 +71,7 @@ public class UserRedPacketServiceImpl implements UserRedPacketService {
 	// 乐观锁，无重入
 	@Override
 	@Transactional(isolation = Isolation.READ_COMMITTED, propagation = Propagation.REQUIRED)
-	public int grapRedPacketForVersion(Long redPacketId, Long userId) {
+	public int grabRedPacketForVersion(Long redPacketId, Long userId) {
 		// 获取红包信息,注意version值
 		RedPacket redPacket = redPacketDao.getRedPacket(redPacketId);
 		// 当前小红包库存大于0
@@ -151,7 +151,7 @@ public class UserRedPacketServiceImpl implements UserRedPacketService {
 	
 	@Override
 	@Transactional(isolation = Isolation.READ_COMMITTED, propagation = Propagation.REQUIRED)
-	public int grabRedPacketForCount(Long redPacketId, Long userId) {
+	public int grapRedPacketForCount(Long redPacketId, Long userId) {
 
 		for(int i = 0; i < 3; i++) {
 
@@ -181,7 +181,7 @@ public class UserRedPacketServiceImpl implements UserRedPacketService {
 	
 	@Override
 	@Transactional(isolation = Isolation.READ_COMMITTED, propagation = Propagation.REQUIRED)
-	public int grabRedPacketForTimestamp(Long redPacketId, Long userId) {
+	public int grapRedPacketForTimestamp(Long redPacketId, Long userId) {
 
 		//获取当前时间
 		long start = System.currentTimeMillis();
@@ -213,7 +213,6 @@ public class UserRedPacketServiceImpl implements UserRedPacketService {
 				return FAILED;
 			}
 		}
-		return FAILED;
 	}
 
 }
